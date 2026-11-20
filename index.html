@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+
+    <meta charset="utf-8">
+
+    <title>Youtube video Embedder</title>
+  </head>
+
+  <body>
+
+    <p>
+        Sign in
+    </p>
+
+    <p>
+        Create thread 
+        <ul>
+            <li>
+                Thread name
+            </li>
+            <li>
+                link
+            </li>
+            <li>
+                save
+            </li>
+        </ul>
+    </p>
+
+    <p>
+        Display Current thread 
+    </p>
+
+    <div id="video-container"></div>
+    <!-- embed using document.createElement with the video ID stored in a variable -->
+    <script>
+      const iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube.com/embed/RX8RSH1xGQc";
+      iframe.width = "560";
+      iframe.height = "315";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      iframe.title = "YouTube video player";
+
+      document.getElementById("video-container").appendChild(iframe);
+    </script>
+
+    <nav id="Link" aria-label="Link">
+      <button type="button">Link next Video </button>
+    </nav>
+    
+    <!-- direct embed from youtube -->
+    <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/GA7RtIOBoSY?si=quY5RG7dFvx8RS5P" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+    </iframe>
+    
+  </body>
+
+</html>
