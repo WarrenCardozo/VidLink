@@ -1,67 +1,126 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
-  <head lang="en">
-
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-
     <title>Youtube video Embedder</title>
+    
+    <style>
+    * { 
+      box-sizing: border-box; 
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 8px; 
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    nav a {
+      display: block;
+      padding: 12px 16px;
+      border: 2px solid black;
+      color: black;
+      text-decoration: none;
+      text-align: center;
+    }
+    .vidviewer {
+      width: min(100%, 560px);
+      margin: 0 auto;
+      border: 2px solid black;
+    }
+    iframe {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      border: 0;
+    }
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px;
+
+    }
+    main {
+    flex: 3 1 300px; 
+    min-width: 0;
+
+    }
+    aside {
+      flex: 1 1 180px;
+      border: 2px solid black;
+      padding: 12px;
+    }
+    </style>
+
+
   </head>
 
+  
   <body>
+    <header class="header"></header>
+    <div class="content">
 
-    <p>
-        Sign in
-    </p>
+      <main>
+        <nav aria-label="Account">
+          <ul>
+            <li><a href="#" aria-current="page">Home</a></li>
+            <li><a href="#">Sign in</a></li>
+          </ul>
+        </nav>
+        <div class="vidviewer">
 
-    <p>
-        Create thread 
-        <ul>
-            <li>
-                Thread name
-            </li>
-            <li>
-                link
-            </li>
-            <li>
-                save
-            </li>
-        </ul>
-    </p>
 
-    <p>
-        Display Current thread 
-    </p>
+          <div id="video-container"> 
+            <!-- embed using document.createElement with the video ID stored in a variable -->
+            <script>
+              const iframe = document.createElement("iframe");
+              iframe.src = "https://www.youtube.com/embed/RX8RSH1xGQc";
+              iframe.width = "560";
+              iframe.height = "315";
+              iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+              iframe.allowFullscreen = true;
+              iframe.title = "YouTube video player";
 
-    <div id="video-container"></div>
-    <!-- embed using document.createElement with the video ID stored in a variable -->
-    <script>
-      const iframe = document.createElement("iframe");
-      iframe.src = "https://www.youtube.com/embed/RX8RSH1xGQc";
-      iframe.width = "560";
-      iframe.height = "315";
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      iframe.title = "YouTube video player";
+              document.getElementById("video-container").appendChild(iframe);
+            </script>
+ 
+            <button type="button">Link next Video </button>
+            
+            <!-- direct embed from youtube -->
+            <iframe
+            src="https://www.youtube.com/embed/GA7RtIOBoSY?si=quY5RG7dFvx8RS5P" 
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+            </iframe>
+            
+          
+          </div>
+        </div>
+      </main>
 
-      document.getElementById("video-container").appendChild(iframe);
-    </script>
+      <aside aria-label="Sidebar">
+        <nav class="site-nav" aria-label="Thread">
+          <ul>
+            <li><a href="#">Create thread </a></li>
+            <li><a href="#">Thread name</a></li>
+            <li><a href="#">link</a></li>
+            <li><a href="#">save</a></li>
+          </ul>
+        </nav>
+      </aside>
 
-    <nav id="Link" aria-label="Link">
-      <button type="button">Link next Video </button>
-    </nav>
-    
-    <!-- direct embed from youtube -->
-    <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/GA7RtIOBoSY?si=quY5RG7dFvx8RS5P" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-    </iframe>
-    
+    </div>
+
   </body>
+
+
 
 </html>
